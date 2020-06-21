@@ -17,7 +17,7 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
 
-  AuthService authService = AuthService();
+  final AuthService _authService = AuthService();
   final _formKey = GlobalKey<FormState>();
   String email, password;
   bool isloading = false;
@@ -26,7 +26,7 @@ class _SignInState extends State<SignIn> {
       setState(() {
         isloading = true;
       });
-     await authService.signInWithEmailAndPassword(email, password).then((val){
+     await _authService.signInWithEmailAndPass(email, password).then((val){
        if(val != null){ 
         setState(() {
         isloading = false;
